@@ -122,8 +122,9 @@ _fix_cursor() {
 precmd_functions+=(_fix_cursor)
 
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" in each ne
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" in each ne
+export PATH=/home/chris/.nvm/versions/node/v20.12.2/bin:$PATH
 
 # add Pulumi to the PATH
 export PATH=$PATH:/home/chris/.pulumi/bin
