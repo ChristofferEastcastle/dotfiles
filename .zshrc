@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias chrome=google-chrome > /dev/null
 
-source /etc/zsh_command_not_found
+source $HOME/.zsh_command_not_found
 alias pjson='python -m json.tool'
 export TERM=xterm-256color
 
