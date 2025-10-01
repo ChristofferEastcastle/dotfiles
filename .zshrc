@@ -103,7 +103,21 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias chrome=google-chrome > /dev/null
 
-source $HOME/.zsh_command_not_found
+# (c) Zygmunt Krynicki 2007,
+# Licensed under GPL, see COPYING for the whole text
+#
+# This script will look-up command in the database and suggest
+# installation of packages available from the repository
+
+if [[ -x /usr/lib/command-not-found ]] ; then
+        if (( ! ${+functions[command_not_found_handler]} )) ; then
+                function command_not_found_handler {
+                        [[ -x /usr/lib/command-not_found ]] || return 1
+                        /usr/lib/command-not-found -- ${1+"$1"} && :
+                }
+        fi
+fi
+
 alias pjson='python -m json.tool'
 export TERM=xterm-256color
 
@@ -125,3 +139,5 @@ _fix_cursor() {
 }
 
 precmd_functions+=(_fix_cursor)
+# Add Snap binaries
+PATH=$PATH:/snap/bin
