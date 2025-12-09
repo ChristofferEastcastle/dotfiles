@@ -21,6 +21,13 @@ fi
 
 autoload -Uz compinit && compinit
 
+_fix_cursor() {
+   echo -ne '\e[5 q'
+}
+
+precmd_functions+=(_fix_cursor)
+
+
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 # Download Zinit, if it's not there yet
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -74,12 +81,6 @@ PATH=$PATH:/home/chris/.pulumi/bin
 PATH=$PATH:/home/$USER/.local/share/JetBrains/Toolbox/apps/rider/bin
 PATH=$PATH:/snap/bin
 PATH=$PATH:/opt/nvim/bin
-
-_fix_cursor() {
-   echo -ne '\e[5 q'
-}
-
-precmd_functions+=(_fix_cursor)
 
 zle_highlight=('paste:none')
 
