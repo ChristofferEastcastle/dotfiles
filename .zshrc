@@ -73,6 +73,7 @@ PATH=$PATH:/home/chris/.pulumi/bin
 # add Rider to the PATH
 PATH=$PATH:/home/$USER/.local/share/JetBrains/Toolbox/apps/rider/bin
 PATH=$PATH:/snap/bin
+PATH=$PATH:/opt/nvim/bin
 
 _fix_cursor() {
    echo -ne '\e[5 q'
