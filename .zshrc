@@ -69,9 +69,10 @@ bindkey "^P" up-line-or-beginning-search
 bindkey "^N" down-line-or-beginning-search
 
 # add Pulumi to the PATH
-export PATH=$PATH:/home/chris/.pulumi/bin
+PATH=$PATH:/home/chris/.pulumi/bin
 # add Rider to the PATH
 PATH=$PATH:/home/$USER/.local/share/JetBrains/Toolbox/apps/rider/bin
+PATH=$PATH:/snap/bin
 
 _fix_cursor() {
    echo -ne '\e[5 q'
