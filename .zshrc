@@ -21,11 +21,11 @@ fi
 
 autoload -Uz compinit && compinit
 
-_fix_cursor() {
-   echo -ne '\e[5 q'
-}
-
-precmd_functions+=(_fix_cursor)
+#_fix_cursor() {
+#   echo -ne '\e[5 q'
+#}
+#
+#precmd_functions+=(_fix_cursor)
 
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
