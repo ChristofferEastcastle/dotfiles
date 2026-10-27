@@ -19,8 +19,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 
-autoload -Uz compinit && compinit
-
 #_fix_cursor() {
 #   echo -ne '\e[5 q'
 #}
@@ -70,7 +68,17 @@ export LD_LIBRARY_PATH=/usr/local/lib
 
 export NVM_DIR="$HOME/.nvm"
 export NVM_SOURCE="$HOME/.nvm"
-[ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"
+# Lazy-load nvm: sourcing it (and running `nvm use default`) costs ~450ms per shell.
+_lazy_nvm() {
+  unset -f nvm node npm npx
+  . "$NVM_SOURCE/nvm.sh"
+}
+if [ -s "$NVM_SOURCE/nvm.sh" ]; then
+  for _cmd in nvm node npm npx; do
+    eval "$_cmd() { _lazy_nvm; $_cmd \"\$@\"; }"
+  done
+  unset _cmd
+fi
 
 bindkey "^P" up-line-or-beginning-search
 bindkey "^N" down-line-or-beginning-search
