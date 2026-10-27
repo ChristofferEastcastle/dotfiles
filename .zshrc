@@ -82,6 +82,10 @@ PATH=$PATH:/home/$USER/.local/share/JetBrains/Toolbox/apps/rider/bin
 PATH=$PATH:/snap/bin
 PATH=$PATH:/opt/nvim/bin
 
+#Add Claude Code to PATH
+PATH=$PATH:$HOME/.local/bin
+
+
 zle_highlight=('paste:none')
 
 # Aliases
